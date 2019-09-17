@@ -33,7 +33,7 @@
         margin-right: auto;
         margin-bottom: .6rem;
 
-        @mixin-atSmall {
+        @mixin atSmall {
             position: relative;
             top: 8px;
             display: inline-block;
