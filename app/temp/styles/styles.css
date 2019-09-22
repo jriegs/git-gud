@@ -1313,3 +1313,17 @@ a {
                 background: rgba(213,149,65, .8)
             }
     }
+
+.reveal-item {
+    opacity: 0;
+    -webkit-transform: translateY(25%);
+            transform: translateY(25%);
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+.reveal-item--visible {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+    }
