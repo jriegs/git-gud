@@ -1101,23 +1101,33 @@ a {
     }
 
 .site-header {
-    padding: 10px 0;
+    padding: 10px 0 0;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
     width: 100%;
+    -webkit-transition: background 0.3s ease-out;
+    transition: background 0.3s ease-out;
 }
+
+.site-header--expanded {
+        background: rgba(47,85,114, .55);
+    }
 
 @media (min-width: 800px) {
 
 .site-header {
-        background: rgba(47,85,114, .3)
+        background: rgba(47,85,114, .3);
+        padding: 10px 0
 }
     }
 
+@media (min-width: 800px) {
+
 .site-header__btn-container {
-        float: right;
+            float: right
+    }
     }
 
 .site-header__logo {
@@ -1147,12 +1157,40 @@ a {
 
 .site-header__menu-icon {
         width: 20px;
-        height: 20px;
-        background: #fff;
+        height: 20px;       
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 15px;
+        right: 15px;
+        z-index: 10;
     }
+
+.site-header__menu-icon::before,
+        .site-header__menu-icon > div,
+        .site-header__menu-icon::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 3px;
+            background: #fff;
+            margin-bottom: 5px;
+            -webkit-transition: all .3s ease-out;
+            transition: all .3s ease-out;
+        }
+
+.site-header__menu-icon::before {
+            -webkit-transform-origin: 0 0;
+                    transform-origin: 0 0;
+        }
+
+.site-header__menu-icon > div {
+            -webkit-transform-origin: 0 50%;
+                    transform-origin: 0 50%;
+        }
+
+.site-header__menu-icon::after {
+            -webkit-transform-origin: 0 100%;
+                    transform-origin: 0 100%;
+        }
 
 @media (min-width: 800px) {
 
@@ -1161,19 +1199,70 @@ a {
     }
     }
 
+.site-header__menu-icon--close-x::before {
+            -webkit-transform: rotate(45deg) scaleX(1.25);
+                    transform: rotate(45deg) scaleX(1.25);
+        }
+
+.site-header__menu-icon--close-x .site-header__menu-icon-bar {
+            opacity: 0;
+            -webkit-transform: scaleX(0);
+                    transform: scaleX(0);
+        }
+
+.site-header__menu-icon--close-x::after {
+            -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+                    transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+        }
+
 .site-header__menu-content {
-        display: none;
+        opacity: 0;
+        padding-top: 100px;
+        text-align: center;
+        -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+        -webkit-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+        position: relative;
+        z-index: -10;
     }
 
 @media (min-width: 800px) {
 
 .site-header__menu-content {
-            display: block
+            opacity: 1;
+            z-index: 1;
+            padding-top: 0;
+            -webkit-transform: scale(1);
+                    transform: scale(1)
     }
     }
 
+.site-header__menu-content--visible {
+            opacity: 1;
+            z-index: 1;
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+
+        }
+
+.primary-nav {
+    padding-top: 10px;
+}
+
+@media (min-width: 800px) {
+
+.primary-nav {
+        padding-top: 0
+}
+    }
+
+@media (min-width: 800px) {
+
 .primary-nav--pull-right {
-        float: right;
+            float: right
+       
+    }
     }
 
 .primary-nav ul {
@@ -1189,8 +1278,15 @@ a {
 
 .primary-nav li {
         list-style: none;
-        float: left;
-        padding-right: 20px;
+        padding-right: 0px;
+    }
+
+@media (min-width: 800px) {
+
+.primary-nav li {
+            float: left;
+            padding-right: 20px
+    }
     }
 
 .primary-nav a {
@@ -1198,5 +1294,22 @@ a {
         font-weight: 300;
         text-decoration: none;
         display: block;
-        padding: 12px 0;
+        padding: 10px 8px;
+        background: rgba(47,85,114, .7);
+    }
+
+.primary-nav a:hover {
+            background: rgba(47,85,114, 1);
+        }
+
+@media (min-width: 800px) {
+
+.primary-nav a {
+            padding: 12px;
+            background: transparent
+    }
+
+            .primary-nav a:hover {
+                background: rgba(213,149,65, .8)
+            }
     }
