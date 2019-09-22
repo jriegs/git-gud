@@ -81,7 +81,8 @@ var _revealOnScroll2 = _interopRequireDefault(_revealOnScroll);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _mobileMenu2.default();
-var revealOnScroll = new _revealOnScroll2.default();
+new _revealOnScroll2.default(document.querySelectorAll('.feature-item'), '75%');
+new _revealOnScroll2.default(document.querySelectorAll('.testimonial'), '60%');
 
 /***/ }),
 /* 1 */
@@ -149,10 +150,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var RevealOnScroll = function () {
-    function RevealOnScroll() {
+    function RevealOnScroll(els, offset) {
         _classCallCheck(this, RevealOnScroll);
 
-        this.itemsToReveal = document.querySelectorAll('.feature-item');
+        this.itemsToReveal = els;
+        this.offsetPercentage = offset;
         this.hideInitially();
         this.createWaypoints();
     }
@@ -167,13 +169,16 @@ var RevealOnScroll = function () {
     }, {
         key: 'createWaypoints',
         value: function createWaypoints() {
+            var _this = this;
+
             this.itemsToReveal.forEach(function (item) {
+                var currentItem = _this;
                 new Waypoint({
                     element: item,
                     handler: function handler() {
                         item.classList.add('reveal-item--visible');
                     },
-                    offset: "75%"
+                    offset: currentItem.offsetPercentage
                 });
             });
         }
