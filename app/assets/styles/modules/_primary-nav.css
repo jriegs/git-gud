@@ -45,7 +45,11 @@
             background: transparent;
 
             &:hover {
-                background: rgba($mainOrange, .8)
+                background: rgba($mainOrange, .8);
+            }
+
+            &.current-link {
+                background: rgba($mainOrange, .8);
             }
         }
     }
