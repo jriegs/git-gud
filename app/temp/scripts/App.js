@@ -11457,8 +11457,8 @@ var _modal2 = _interopRequireDefault(_modal);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _mobileMenu2.default();
-new _revealOnScroll2.default(document.querySelectorAll('.feature-item'), '75%');
-new _revealOnScroll2.default(document.querySelectorAll('.testimonial'), '70%');
+new _revealOnScroll2.default(document.querySelectorAll('.feature-item'), '60%');
+new _revealOnScroll2.default(document.querySelectorAll('.testimonial'), '60%');
 var stickyHeader = new _stickyHeader2.default();
 var modal = new _modal2.default();
 
@@ -11600,6 +11600,7 @@ var StickyHeader = function () {
     function StickyHeader() {
         _classCallCheck(this, StickyHeader);
 
+        this.lazyImages = document.querySelectorAll('.lazyload');
         this.siteHeader = document.querySelector('.site-header');
         this.headerTriggerElement = document.querySelector('.large-hero__description');
         this.createHeaderWaypoint();
@@ -11607,9 +11608,17 @@ var StickyHeader = function () {
         this.headerLinks = document.querySelectorAll('.primary-nav a');
         this.createPageSectionWaypoints();
         this.addSmoothScrolling();
+        this.refreshWaypoints();
     }
 
     _createClass(StickyHeader, [{
+        key: 'refreshWaypoints',
+        value: function refreshWaypoints() {
+            this.lazyImages.addEventListener('load', function () {
+                Waypoint.refreshAll();
+            });
+        }
+    }, {
         key: 'addSmoothScrolling',
         value: function addSmoothScrolling() {
             (0, _jquery2.default)('.primary-nav a').smoothScroll();
