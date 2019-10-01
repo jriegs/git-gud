@@ -3177,4 +3177,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! picturefill - v3.0.2 - 2016-02-12
 
 
 /***/ })
+<<<<<<< HEAD:app/temp/scripts/vendor.js
 /******/ ]);
+=======
+
+/******/ });
+>>>>>>> 4375c67fc01b80a260fd2b604553fd5ea061951b:app/temp/scripts/vendor.js
