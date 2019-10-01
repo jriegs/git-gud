@@ -11457,8 +11457,8 @@ var _modal2 = _interopRequireDefault(_modal);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _mobileMenu2.default();
-new _revealOnScroll2.default(document.querySelectorAll('.feature-item'), '60%');
-new _revealOnScroll2.default(document.querySelectorAll('.testimonial'), '60%');
+new _revealOnScroll2.default(document.querySelectorAll('.feature-item'), '70%');
+new _revealOnScroll2.default(document.querySelectorAll('.testimonial'), '70%');
 var stickyHeader = new _stickyHeader2.default();
 var modal = new _modal2.default();
 
@@ -11614,8 +11614,10 @@ var StickyHeader = function () {
     _createClass(StickyHeader, [{
         key: 'refreshWaypoints',
         value: function refreshWaypoints() {
-            this.lazyImages.addEventListener('load', function () {
-                Waypoint.refreshAll();
+            this.lazyImages.forEach(function (image) {
+                image.addEventListener('load', function () {
+                    Waypoint.refreshAll();
+                });
             });
         }
     }, {

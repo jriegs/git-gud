@@ -16,8 +16,10 @@ class StickyHeader {
     }
 
     refreshWaypoints() {
-        this.lazyImages.addEventListener('load', () => {
-            Waypoint.refreshAll();
+        this.lazyImages.forEach((image) => {
+            image.addEventListener('load', () => {
+                Waypoint.refreshAll();
+            });
         });
     }
 
